@@ -83,6 +83,7 @@ static void TTT_SinglePlayer(void)//Single player(X) vs computer(O)
 			if( place!=0 )
 			{
 				SET_BIT(O,place);
+				turn=1;
 				
 			}
 			else
@@ -277,7 +278,7 @@ static void TTT_MultiPlayer(void)//Multiplayer: Player 1 vs Player 2 (BOTH HUMAN
 
 static void TTT_Display(void)
 {
-	//system("cls");
+	system("cls");
 	printf("Click 0 at any time to abort current game\n");
 	printf("\n\t\t %c | %c | %c \n\t\t-----------",TTT_XorO(7),TTT_XorO(8),TTT_XorO(9));
 	printf("\n\t\t %c | %c | %c \n\t\t-----------",TTT_XorO(4),TTT_XorO(5),TTT_XorO(6));
