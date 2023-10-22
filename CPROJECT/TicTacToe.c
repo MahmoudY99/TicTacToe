@@ -271,15 +271,13 @@ static void TTT_MultiPlayer(void)//Multiplayer: Player 1 vs Player 2 (BOTH HUMAN
 	else
 		TTT_Quit();
 	
-	
-	
 }
 
 
 
 static void TTT_Display(void)
 {
-	system("cls");
+	//system("cls");
 	printf("Click 0 at any time to abort current game\n");
 	printf("\n\t\t %c | %c | %c \n\t\t-----------",TTT_XorO(7),TTT_XorO(8),TTT_XorO(9));
 	printf("\n\t\t %c | %c | %c \n\t\t-----------",TTT_XorO(4),TTT_XorO(5),TTT_XorO(6));
@@ -338,9 +336,9 @@ static uint8 TTT_IsAboutToWin(void)
 	uint16 temp2;
 	uint8 count=0;
 
-	for(uint8 i=0 ; i++ ; i<8 )//check for AI first
+	for(uint8 i=0 ; i<8 ; i++ )//check for AI first
 	{	
-		
+	
 		count=0;
 		temp= O^Win[i]; //xoring the AI bits with a win state should return only one set bit if one move left to win 
 		count=temp&&(!(temp&(temp-1)));//equals 1 if only one set bit
@@ -355,7 +353,6 @@ static uint8 TTT_IsAboutToWin(void)
 					move++;
 				}
 				move--;
-				printf("%d",move);
 				return move;//exit forloop, stop searching
 			}
 		}
@@ -364,9 +361,8 @@ static uint8 TTT_IsAboutToWin(void)
 	
 	if(move==0)//no winning move found for AI, start looking for a winning move for human
 	{
-		for(uint8 i=0 ; i++ ; i<8 )//check for AI first
+		for(uint8 i=0 ; i<8 ; i++ )//check for AI first
 		{	
-		
 		count=0;
 		temp= X^Win[i]; //xoring the AI bits with a win state should return only one set bit if one move left to win 
 		count=temp&&(!(temp&(temp-1)));//equals 1 if only one set bit
